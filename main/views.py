@@ -39,10 +39,6 @@ def module_view(request, module_slug):
     return render(request, 'main/module.html', context)
 
 
-def certificate(request):
-    return render(request, 'main/certificate.html')
-
-
 @login_required(login_url='users:login')
 def topic_view(request, topic_slug):
     current_topic = Topic.objects.get(topic_slug=topic_slug)

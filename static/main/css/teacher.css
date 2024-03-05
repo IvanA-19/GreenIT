@@ -1,0 +1,30 @@
+.teacher img{
+    float: left;
+    margin-right: 20px;
+}
+
+.about_teacher ul{
+    padding: 0;
+    list-style-type: none;
+}
+
+.about_teacher ul li{
+     margin-bottom: 6px;
+}
+
+.teacher{
+    background-color: #C9F0DD;
+    border: solid darkgreen;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.teacher h3{
+    font-size: 18pt;
+}
+
+.teacher a{
+    color: #156632;
+    font-weight: bold;
+}

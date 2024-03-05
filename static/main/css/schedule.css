@@ -1,0 +1,12 @@
+.schedule{
+    background-color: #C9F0DD;
+    border: solid darkgreen;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.schedule h3{
+    text-align: center;
+    font-size: 18pt;
+}
