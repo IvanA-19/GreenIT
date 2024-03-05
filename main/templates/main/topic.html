@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}{{topic}}{% endblock %}
+
+{% block page_header %}
+    <h1>
+        <a href="{% url 'main:module' topic.module.module_slug %}"
+        style="font-size: 22pt; color: #156632">{{topic.module}}</a>
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="lesson">
+        <h2>{{topic}}</h2>
+        <ul class="subtopics">
+            {% for subtopic in subtopics %}
+                <li>
+                    <div class="subtopic">
+                        <h4>{{subtopic}}</h4>
+                        <p>{{subtopic.content}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <h3>
+            {% if topic.video %}
+                Ссылка на видео-разбор занятия: <a href="{{topic.video}}" target="_blank">{{topic.video}}</a><br>
+            {% endif %}
+            {% if topic.link %}
+                Ссылку на решение домашних задач указать в google-форме: <a href="{{topic.link}}">{{topic.link}}</a>
+            {% endif %}
+        </h3>
+    </div>
+
+    <link rel="stylesheet" href="{% static 'main/css/topic.css' %}">
+
+{% endblock %}

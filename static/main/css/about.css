@@ -1,0 +1,41 @@
+.course_content, .about, .for_users, .modules{
+    background-color: #C9F0DD;
+    border: solid darkgreen;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.course_content h3{
+    font-size: 18pt;
+}
+
+.about h3{
+    font-size: 18pt;
+}
+
+.modules h3{
+    font-size: 18pt;
+}
+
+.for_users h3{
+    font-size: 18pt;
+}
+
+.about h3{
+    text-align: center;
+}
+
+.about p{
+    font-size: 12pt;
+}
+
+.course_content a{
+    color: #156632;
+    font-weight: bold;
+}
+
+.about a{
+    color: #156632;
+    font-weight: bold;
+}

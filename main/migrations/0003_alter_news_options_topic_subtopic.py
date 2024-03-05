@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=300, verbose_name='Название')),
                 ('description', models.TextField(verbose_name='Описание')),
                 ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
-                ('module', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.module')),
+                ('module.js', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.module.js')),
             ],
             options={
                 'verbose_name': 'Тема',

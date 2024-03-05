@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
-    <link rel="icon" href="{% static 'main/images/icon/icon.png' %}">
+    <link rel="icon" href="{% static 'main/images/icon/icon.jpeg' %}">
 
     {% bootstrap_css %}
     {% bootstrap_javascript %}
@@ -23,13 +23,21 @@
                     <img src="{% static 'main/images/logo/logo.jpeg' %}" alt="logo"
                     class="nav-logo" width="60px" height=60px" style="border-radius: 50%">
                      GreenIT</a>
-                <ul class="navbar-nav mr-auto" style="font-size: 14pt;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'main:news' %}">Новости</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 14pt">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Обучающимся
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a href="{% url 'main:about' %}" class="dropdown-item">О курсе</a></li>
+                            <li><a class="dropdown-item" href="{% url 'main:teacher' %}">Преподаватель</a></li>
+                            <li><a class="dropdown-item" href="{% url 'main:certificate' %}">Сертификат</a></li>
+                        </ul>
                     </li>
                 </ul>
 
-                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -38,29 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:schedule' %}">Расписание</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                О курсе
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="{% url 'main:about' %}" class="dropdown-item">О курсе</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:teacher' %}">Преподаватель</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:content' %}">Содержание курса</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:certificate' %}">Сертификат</a></li>
-                            </ul>
-                        </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Модули
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="{% url 'main:modules' %}" class="dropdown-item">О модулях</a></li>
-                                <li><a class="dropdown-item" href="#">Модуль 1</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Модуль 2</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Модуль 3</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Модуль 4</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'main:modules' %}">Модули</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mr-auto" style="font-size: 14pt">
@@ -75,7 +63,7 @@
                                 </li>
                             {% else %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Перейти в профиль</a>
+                                    <a class="nav-link" href="{% url 'users:profile' %}">Перейти в профиль</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'users:logout' %}">Выйти</a>
@@ -83,6 +71,9 @@
                             {% endif %}
 
                         {% else %}
+                            <li class="nav-item">
+                                <a href="{% url 'users:register' %}" class="nav-link">Регистрация</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
                             </li>
@@ -103,23 +94,26 @@
 
                 <div class="footer">
                     <div style="float: left; margin-right: 15px">
-                        <h6>Контактная информация</h6>
-                        <div>Адрес: Нижний Новгород, ул.Минина, д.3(этаж цокольный)</div>
-                        <div>Тел.: +79049204702</div>
-                        <div style="margin-right: 20px; width: auto">Электронная почта:
-                            ddt.greensail@gmail.com
-                            ddt.greensailnn@gmail.com
-                        </div>
+                        <h6>По возникающим вопросам писать на почту
+                            <br>или в телеграм</h6>
+                        <div>greensails72@gmail.com</div>
+                        <div><a href="https://t.me/Vanyok77797" style="color: white">Иван Алексеев</a></div>
                     </div>
 
-                    <div style="margin-top: 0; float: left; margin-right: 80px">
-                        <h6 style="text-align: left;  width: 135px">Соцсети</h6>
+                    <div style="float: left; margin-right: 15px">
+                        <h6 style="text-align: left;  width: 135px">Чаты в соцсетях</h6>
                         <div style=" float: left; margin-right: 15px">
-                            <a href="https://vk.com/greensailnn" target="_blank"><img src="{% static 'main/images/logo/img_1.png' %}" alt="" width="60px" height="60px"></a>
+                            <a href="https://vk.me/join/71b1yYYGbyuuOQGdBw8ec6YXaqESLqyHevI=" target="_blank"><img src="{% static 'main/images/logo/img_1.png' %}" alt="" width="60px" height="60px"></a>
                         </div>
 
-                        <div style="margin-top: 5px">
-                            <a href="https://t.me/greensail52" target="_blank"><img src="{% static 'main/images/logo/img_2.png' %}" alt="" width="60px" height="60px"></a>
+                        <div style="margin-top: 5px;">
+                            <a href="https://t.me/+HXHMJPBWdUcyZDFi" target="_blank"><img src="{% static 'main/images/logo/img_2.png' %}" alt="" width="60px" height="60px"></a>
+                        </div>
+                    </div>
+                    <div style="float: left">
+                        <h6>Сервер в Discord</h6>
+                        <div style="margin-right: 15px; float: left">
+                            <a href="https://discord.gg/EUTJSmF4" target="_blank"><img src="{% static 'main/images/logo/ds_logo.png' %}" alt="Discord" width="60px" height="60px"></a>
                         </div>
                     </div>
                 </div>

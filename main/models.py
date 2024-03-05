@@ -1,69 +1,55 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 # Create your models here.
 class Module(models.Model):
     title = models.CharField(max_length=300, verbose_name='Модуль')
     enabled = models.BooleanField(verbose_name='Доступен')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+    description = models.TextField(verbose_name='Описание', null=True)
+    module_slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return f'/modules/{self.module_slug}'
 
     class Meta:
         verbose_name = 'Модуль'
         verbose_name_plural = 'Модули'
-
-
-class News(models.Model):
-    title = models.CharField(max_length=300, verbose_name='Новость')
-    content = models.TextField(verbose_name='Текст')
-    photo = models.ImageField(upload_to='media/news', blank=True, null=True, verbose_name='Фото')
-    date_added = models.DateTimeField(auto_now=True, verbose_name='Дата добавления')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-
-    class Meta:
-        verbose_name = 'Новость'
-        verbose_name_plural = 'Новости'
+        ordering = ['title', 'id']
 
 
 class Topic(models.Model):
-    module = models.ForeignKey(Module, on_delete=models.CASCADE)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, verbose_name='Модуль')
     title = models.CharField(max_length=300, verbose_name='Название')
-    description = models.TextField(verbose_name='Описание')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+    description = models.TextField(verbose_name='Описание', null=True, blank=True)
+    home_tasks = models.TextField(verbose_name='Домашние задачи', null=True, blank=True)
+    link = models.CharField(max_length=500, verbose_name='Ссылка на google-форму для ответов', null=True, blank=True)
+    video = models.CharField(max_length=300, null=True, blank=True, verbose_name='Запись занятия')
+    topic_slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return f'topics/{self.topic_slug}/'
 
     class Meta:
         verbose_name = 'Тема'
         verbose_name_plural = 'Темы'
+        ordering = ['title', 'id']
 
 
-class SubTopic(models.Model):
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+class Subtopic(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, verbose_name='Тема')
     title = models.CharField(max_length=300, verbose_name='Название')
-    content = models.TextField(verbose_name='Содержание')
-    video = models.FileField(upload_to='media/video', null=True, blank=True, verbose_name='Запись занятия')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+    content = models.TextField(verbose_name='Содержание', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
 
     class Meta:
-        verbose_name = 'Под-тема'
-        verbose_name_plural = 'Под-темы'
-
-
-class Tasks(models.Model):
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    content = models.TextField(verbose_name='Текст задач')
-    enabled = models.BooleanField(verbose_name='Задания доступны для выполнения')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-
-    class Meta:
-        verbose_name_plural = 'Задачи'
-        verbose_name = 'Задачи'
-
-
-class UserAnswer(models.Model):
-    task = models.ForeignKey(Tasks, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    link = models.TextField(verbose_name='Ссылка на git')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-
-    class Meta:
-        verbose_name_plural = 'Ответы пользователей'
+        verbose_name = 'Подтема'
+        verbose_name_plural = 'Поддемы'
+        ordering = ['topic', 'id']

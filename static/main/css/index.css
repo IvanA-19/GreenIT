@@ -1,0 +1,78 @@
+.teacher img{
+    float: left;
+    margin-right: 20px;
+}
+
+.about_teacher ul{
+    padding: 0;
+    list-style-type: none;
+}
+
+.about_teacher ul li{
+     margin-bottom: 6px;
+}
+
+.teacher, .course_content, .about, .for_users, .contacts{
+    background-color: #C9F0DD;
+    border: solid darkgreen;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.teacher h3{
+    font-size: 18pt;
+}
+
+.course_content h3{
+    font-size: 18pt;
+}
+
+.about h3{
+    font-size: 18pt;
+}
+
+.for_users h3{
+    font-size: 18pt;
+}
+
+.contacts h3{
+    font-size: 18pt;
+}
+
+.contacts ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.main_moments h3{
+    text-align: center;
+}
+
+.about h3{
+    text-align: center;
+}
+
+.about p{
+    font-size: 12pt;
+}
+
+.teacher a{
+    color: #156632;
+    font-weight: bold;
+}
+
+.contacts a{
+    color: #156632;
+    font-weight: bold;
+}
+
+.course_content a{
+    color: #156632;
+    font-weight: bold;
+}
+
+.about a{
+    color: #156632;
+    font-weight: bold;
+}

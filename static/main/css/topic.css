@@ -1,0 +1,33 @@
+.lesson{
+    background-color: #C9F0DD;
+    border-radius: 15px;
+    padding: 15px;
+    border: solid darkgreen;
+}
+
+.lesson h2{
+    font-size: 20pt;
+    margin-bottom: 15px;
+}
+
+.lesson ul{
+    list-style-type: decimal;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.subtopic h4{
+    font-size: 16pt;
+}
+
+.subtopic p{
+    font-size: 12pt;
+}
+
+.lesson h3{
+    font-size: 16pt;
+}
+
+.lesson h3 a{
+        color: #156632;
+}

@@ -22,11 +22,11 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AlterModelOptions(
-            name='module',
+            name='module.js',
             options={'verbose_name': 'Модуль', 'verbose_name_plural': 'Модули'},
         ),
         migrations.AddField(
-            model_name='module',
+            model_name='module.js',
             name='slug',
             field=models.SlugField(default='Module 1', max_length=255, unique=True, verbose_name='URL'),
             preserve_default=False,

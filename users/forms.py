@@ -18,3 +18,5 @@ class UserRegisterForm(UserCreationForm):
                   'email': 'Электронная почта',
                   'password1': 'Пароль',
                   'password2': 'Подтверждение пароля'}
+
+

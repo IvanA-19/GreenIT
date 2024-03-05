@@ -1,10 +1,39 @@
 {% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block title %}Модули{% endblock %}
 
 {% block page_header %}
-
+    <h1>Модули</h1>
 {% endblock %}
 
 
 {% block content %}
+    <ul class="modules">
+        {% for module in modules %}
+            {% if module.enabled %}
+                <li>
+                    <div class="module">
+                        <img src="{% static 'main/images/modules/module_1_preview.jpg' %}" alt="preview">
+                        <h3><a href="{% url 'main:module' module.module_slug %}">{{module}}</a></h3>
+                        {% if module.description|length > 500 %}
+                            <p id="module_{{module.id}}_text">{{module.description|slice:500}}...</p>
+                            <button class="btn btn-lg" style="background-color: #8A2BE2; color: white;"
+                                        onmouseover="this.style.backgroundColor='#9400D3'"
+                                        onmouseout="this.style.backgroundColor='#8A2BE2'"
+                                        onclick="full_text(`{{module.description}}`, `{{module.id}}`)"
+                            id="show_button_{{module.id}}">Читать полностью</button>
+                            <div id="hide_{{module.id}}" style="margin-bottom: 10px;"></div>
+                        {% else %}
+                            <p>{{module.description|linebreaks}}</p>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 
+    <link rel="stylesheet" href="{% static 'main/css/module.css' %}">
+    <script src="{% static 'main/js/module.js' %}"></script>
 {% endblock %}

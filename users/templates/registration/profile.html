@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block page_header %}
+    <h1>Профиль пользователя {{user.username}}</h1>
+{% endblock %}
+
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+{% endblock %}
+

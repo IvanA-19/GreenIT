@@ -1,11 +1,12 @@
 {% extends 'main/base.html' %}
-{% load django_bootstrap5 %}
 
+{% load django_bootstrap5 %}
+{% load static %}
 
 {% block title %}Авторизация{% endblock %}
 
 {% block page_header %}
-    <h2>Авторизация</h2>
+    <h1>Авторизация</h1>
 {% endblock %}
 
 {% block content %}
@@ -13,14 +14,7 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% bootstrap_button button_type="submit" content="Войти" button_class="btn-success" %}
-
-
         <input type="hidden" name="next" value="{% url 'main:index' %}" />
     </form>
-    <style>
-        .form-control:focus {
-            border-color: #28a745;
-            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'users/css/forms.css' %}">
 {% endblock %}
