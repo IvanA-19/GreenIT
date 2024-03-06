@@ -22,22 +22,27 @@
 
 .teacher h3{
     font-size: 18pt;
+    color: #156632;
 }
 
 .course_content h3{
     font-size: 18pt;
+    color: #156632;
 }
 
 .about h3{
     font-size: 18pt;
+    color: #156632;
 }
 
 .for_users h3{
     font-size: 18pt;
+    color: #156632;
 }
 
 .contacts h3{
     font-size: 18pt;
+    color: #156632;
 }
 
 .contacts ul{
@@ -47,10 +52,12 @@
 
 .main_moments h3{
     text-align: center;
+    color: #156632;
 }
 
 .about h3{
     text-align: center;
+    color: #156632;
 }
 
 .about p{
